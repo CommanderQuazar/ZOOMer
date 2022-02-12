@@ -21,7 +21,7 @@ add_executable(
         system/lib/command-line-interface.c
         system/lib/utilities/runtime-functionality.c
         system/lib/utilities/time-date.c
-        system/src/tester.c system/src/cli_init.c
+        system/src/cli_init.c
         system/lib/utilities/cli-lib.c
         system/includes/cli.h
         system/includes/token.h
