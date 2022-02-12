@@ -121,9 +121,10 @@ char * openBrowserCmd(char * meeting_url)
 
     #endif
 
-    #if defined(_WIN32) || defined(_WIN64)
-        char * open_url_cmd = "start ";      //Command//
-    #endif
+    // Windows in the future?
+    // #if defined(_WIN32) || defined(_WIN64)
+    //    char * open_url_cmd = "start ";      //Command//
+    // #endif
 
     char * result = NULL;
 
@@ -148,13 +149,14 @@ void open_meeting(struct token *currentMeeting, bool soundOn)
         system(open_cmd);
     #endif
 
-    #if defined(_WIN32) || defined(_WIN64)
-        if(soundOn)
-            system("PowerShell -Command \"Add-Type –AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('Launching Virtual Meeting');\"");
-
-        char * open_cmd = openBrowserCmd(currentMeeting->URL);
-        system(open_cmd);
-    #endif
+    // Windows in the future?
+    // #if defined(_WIN32) || defined(_WIN64)
+    //    if(soundOn)
+    //        system("PowerShell -Command \"Add-Type –AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('Launching Virtual Meeting');\"");
+    //
+    //    char * open_cmd = openBrowserCmd(currentMeeting->URL);
+    //    system(open_cmd);
+    // #endif
         free(open_cmd);
 }
 
@@ -170,10 +172,10 @@ void end_meeting(bool soundOn)
         kill(my_pid, SIGKILL);
     #endif
 
-    #if defined(_WIN32) || defined(_WIN64)
-        if(soundOn)
-            system("PowerShell -Command \"Add-Type –AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('Closing Virtual Meeting');\"");
-
-        system("taskkill /im zoom.exe");
-    #endif
+    // Windows in the future?
+    // #if defined(_WIN32) || defined(_WIN64)
+    //    if(soundOn)
+    //        system("PowerShell -Command \"Add-Type –AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('Closing Virtual Meeting');\"");
+    //    system("taskkill /im zoom.exe");
+    // #endif
 }
