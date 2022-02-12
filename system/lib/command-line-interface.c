@@ -34,7 +34,7 @@ bool isSound = 1;
 int schedule_index = 0;
 int total_schedules = 0;
 
-#define ZOOMER_TILE_ICON "/Users/tobeyragain/Argon Galactic/Projects/ZOOMer/system/icons/zoomer_icon_ascii_small.txt"
+#define ZOOMER_TILE_ICON "../system/icons/zoomer_icon_ascii_small.txt"
 
 /*
  * Creates a table composed of all list found in a session pointer
