@@ -1,0 +1,77 @@
+
+Help Page:
+
+Welcome to ZOOMer!
+
+ZOOMer is a cross platform system that launch and close Zoom meetings.
+Each meeting card is composed for four elements, a name, and URL to launch,
+a start time, and a end time.
+
+Once the specified time to launch your meeting has been reached the program
+will launch a your virtual meeting in your default browser.
+
+1. How to use
+    1a. Creating a new schedule
+    To create a new schedule press option 1 in the main menu.
+    Then enter the name for your schedule (Work Day 5/11/2021, School Day).
+    Once a name has been entered you will see a prompt with the weekday and the meeting #.
+    Enter the name of the schedule.
+    Enter the URL for your meeting, make sure you include the https/http in your URL.
+    Then enter the start time, it will ask for the hour (in 24 hour time) then then minute.
+    Repeat for the end time.
+    Please note: Once you have finished entering all info for your meeting within a weekday they will
+    be sorted according to their start times.
+    Once you has finished entering the meeting information you can either enter a name for a new meeting
+    or press return to move onto the next day.
+
+    1b. Errors
+    List of possible errors:
+        1. A meeting starts before it ends
+        2. A meeting has equal start and end times
+        3. A meeting has the same start stop time as another meeting in a weekday
+        4. Meeting times overlap each other
+
+    If an error has been flagged in your schedule you can return to the main menu
+    (this DELETES ALL data about the list)
+    You can also edit flagged meetings to remove the invalid start/end time. Once this
+    option has been selected it will display the name of the meeting and ask yo to reenter the info.
+
+    Once all error have been resolved you can proceed to thw summery page
+
+    1c. Summery Page
+    From the summery page you can make edits to your schedule (add a meeting, delete a meeting, edit a meeting),
+    repeat a day, save and run a schedule, save and exit to main menu, and return to main menu (This delete all information
+    about a schedule)
+
+    The repeater:
+    From the repeater you can enter a non-empty day and repeat ALL meetings in any selected day.
+    Once a valid meeting has been selected you will be presented with a prompt to repeat a meeting on that day.
+    Press any key and return to selected that day. If you would not like to repeat a day simply press return.
+
+    Running a schedule:
+    Once you are happy with your schedule you can run it! If would would like an audible alert
+    when a meeting is about to launch the setting can be found in the main menu. The schedule will run indefinitely
+    unless you quit ZOOMer, restart your computer, you stop the current schedule.
+
+2. Some quick tips
+    2a. Always remember to include the https/http in your URLs.
+    2b. Your meeting name must be shorter than 15 characters
+    2c. Your schedule name must be shorter than 25 charters
+    2d. You can only sort 25 schedules at a time
+    2e. You can only have 100 meeting within a weekday
+    2f. Your meeting URL must be shorted than 300 characters
+
+
+3. Hidden eggs!
+    Hidden throughout the program are several easter eggs! To find them you must explore
+    the interface and try to find clues. Once you have found an eggs email the egg code to
+    info@argongalactic.xyz for an eAmazon Gift Card!
+
+    To see what eggs have been found visit www.argongalactic.xyz to see if any eggs have been found!
+
+4. Error Reporting
+    If you encounter any errors please send a detailed description of the problem and the
+    events that led up to the problem to info@argongalactic.xyz for a reward!
+
+And be one the lookout for our graphical user interface coming soon!
+

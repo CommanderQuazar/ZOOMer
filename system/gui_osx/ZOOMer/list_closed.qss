@@ -1,0 +1,17 @@
+QListView {
+    show-decoration-selected: 1; /* make the selection span the entire width of the view */
+    background-color: rgb(139, 141, 141);
+    border-radius: 3px;
+    border: 3px solid rgb(85, 86, 86);;
+}
+QListView::item {
+    background-color: rgb(184,0,0);
+    border: 2px solid #303030;
+    border-bottom-color: #303030; /* same as the pane color */
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    min-width: 14.4ex;
+    padding: 15px;
+    border-radius: 6px;
+}
+

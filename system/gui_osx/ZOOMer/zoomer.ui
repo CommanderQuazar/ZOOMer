@@ -1,0 +1,3052 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ZOOMer</class>
+ <widget class="QMainWindow" name="ZOOMer">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1077</width>
+    <height>650</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1077</width>
+    <height>650</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1077</width>
+    <height>650</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>ZOOMer</string>
+  </property>
+  <property name="accessibleName">
+   <string/>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#ZOOMer {
+                background: grey;
+                width: 10px; /* when vertical */
+                height: 10px; /* when horizontal */
+                }
+
+                QMainWindow::separator:hover {
+                background: red;
+                }
+            </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="WeekDay_Tabs">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>200</y>
+      <width>1121</width>
+      <height>501</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Gill Sans</family>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTabWidget::pane { /* The tab widget frame */
+                        border-top: 2px solid #505050;
+                        }
+
+                        #QTabWidget {
+                        background:rgb(85, 86, 86);
+                        }
+
+
+                        QTabWidget::tab-bar {
+                        left: 5px; /* move to the right by 5px */
+                        }
+
+
+                        /* Style the tab using the tab sub-control. Note that
+                        it reads QTabBar _not_ QTabWidget */
+                        QTabBar::tab {
+                        background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                        stop: 0 #686868, stop: 0.4 #505050,
+                        stop: 0.5 #686868, stop: 1.0 #505050);
+                        border: 2px solid #303030;
+                        border-bottom-color: #303030; /* same as the pane color */
+                        border-top-left-radius: 3px;
+                        border-top-right-radius: 3px;
+                        min-width: 14.4ex;
+                        padding: 15px;
+                        }
+
+
+                        QTabBar::tab:selected, QTabBar::tab:hover {
+                        background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                        stop: 0 #484848, stop: 0.4 #585858,
+                        stop: 0.5 #585858, stop: 1.0 #484848);
+                        }
+
+
+                        QTabBar::tab:selected {
+                        border-color: #FF0000;
+                        border-bottom-color: #FF0000; /* same as pane color */
+                        }
+
+
+                        QTabBar::tab:!selected {
+                        margin-top: 4px; /* make non-selected tabs look smaller */
+                        }
+
+
+                        /* make use of negative margins for overlapping tabs */
+                        QTabBar::tab:selected {
+                        /* expand/overlap to the left and right by 4px */
+                        margin-left: -6px;
+                        margin-right: -6px;
+                        }
+
+
+                        QTabBar::tab:first:selected {
+                        margin-left: 0; /* the first selected tab has nothing to overlap with on the left */
+                        }
+
+
+                        QTabBar::tab:last:selected {
+                        margin-right: 0; /* the last selected tab has nothing to overlap with on the right */
+                        }
+
+
+                        QTabBar::tab:only-one {
+                        margin: 0; /* if there is only one tab, we don't want overlapping margins */
+                        }
+                    </string>
+    </property>
+    <property name="currentIndex">
+     <number>7</number>
+    </property>
+    <widget class="QWidget" name="Home_t">
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <attribute name="title">
+      <string>Home</string>
+     </attribute>
+     <widget class="QWidget" name="widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1103</width>
+        <height>422</height>
+       </rect>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <widget class="QFrame" name="repeater_w">
+       <property name="geometry">
+        <rect>
+         <x>540</x>
+         <y>130</y>
+         <width>501</width>
+         <height>221</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QFrame {
+								border: 3px solid rgb(85, 86, 86);;
+                                    border-radius: 6px;
+                                    background-color: rgb(139, 141, 141);
+                                    min-width: 80px;
+                                    }
+                                </string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QComboBox" name="weekdays_7">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>20</y>
+          <width>141</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Gill Sans</family>
+          <pointsize>17</pointsize>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QComboBox
+                                        {
+                                        subcontrol-origin: padding;
+                                        subcontrol-position: top right;
+                                        selection-background-color: #111;
+                                        selection-color: yellow;
+                                        color: white;
+                                        background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656,
+                                        stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);
+                                        border-style: solid;
+                                        border: 1px solid #1e1e1e;
+                                        border-radius: 5;
+                                        padding: 1px 0px 1px 20px;
+                                        }
+
+
+                                        QComboBox:hover, QPushButton:hover
+                                        {
+                                        border: 1px solid red;
+                                        color: white;
+                                        }
+
+                                        QComboBox:editable {
+                                        background: red;
+                                        color: pink;
+                                        }
+
+                                        QComboBox:on
+                                        {
+                                        padding-top: 0px;
+                                        padding-left: 0px;
+                                        color: white;
+                                        background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d2d,
+                                        stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252525);
+                                        selection-background-color: #ffaa00;
+                                        }
+
+                                        QComboBox:!on
+                                        {
+                                        color: white;
+                                        background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #666,
+                                        stop: 0.1 #555, stop: 0.5 #555, stop: 0.9 #444, stop: 1 #333);
+                                        }
+
+                                        QComboBox QAbstractItemView
+                                        {
+                                        border: 2px solid darkgray;
+                                        color: black;
+                                        selection-background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0
+                                        #111, stop: 1 #333);
+                                        }
+
+                                        QComboBox::drop-down
+                                        {
+                                        subcontrol-origin: padding;
+                                        subcontrol-position: top right;
+                                        width: 15px;
+                                        color: white;
+                                        border-left-width: 0px;
+                                        border-left-color: darkgray;
+                                        border-left-style: solid; /* just a single line */
+                                        border-top-right-radius: 3px; /* same radius as the QComboBox */
+                                        border-bottom-right-radius: 3px;
+                                        padding-left: 10px;
+                                        }
+
+                                        QComboBox::down-arrow, QSpinBox::down-arrow, QTimeEdit::down-arrow,
+                                        QDateEdit::down-arrow
+                                        {
+                                        image: url(:/icons/down_arrow.png);
+                                        width: 7px;
+                                        height: 5px;
+                                        }
+                                    </string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Select Day</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Monday</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Tuseday</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Wednesday</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Thursday</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Friday</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Saturday</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Sunday</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string/>
+         </property>
+        </item>
+       </widget>
+       <widget class="QFrame" name="monday_f">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>20</y>
+          <width>141</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QFrame {
+                                        background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656,
+                                        stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);
+                                        }
+                                    </string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QCheckBox" name="checkBox_mon">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>10</y>
+           <width>81</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Gill Sans</family>
+           <pointsize>15</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Monday</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QFrame" name="tuseday_f">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>20</y>
+          <width>141</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QFrame {
+                                        background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656,
+                                        stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);
+                                        }
+                                    </string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QCheckBox" name="checkBox_tue">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>10</y>
+           <width>86</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Gill Sans</family>
+           <pointsize>15</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Tuseday</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QFrame" name="thursday_f">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>90</y>
+          <width>141</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Gill Sans</family>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QFrame {
+                                        background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656,
+                                        stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);
+                                        }
+                                    </string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QCheckBox" name="checkBox_thrus">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>10</y>
+           <width>91</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Gill Sans</family>
+           <pointsize>15</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Thrusday</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QFrame" name="friday_f">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>90</y>
+          <width>141</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QFrame {
+                                        background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656,
+                                        stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);
+                                        }
+                                    </string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QCheckBox" name="checkBox_fri">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>10</y>
+           <width>86</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Gill Sans</family>
+           <pointsize>15</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Friday</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QFrame" name="saturday_f">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>160</y>
+          <width>141</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QFrame {
+                                        background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656,
+                                        stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);
+                                        }
+                                    </string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QCheckBox" name="checkBox_sat">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>10</y>
+           <width>81</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Gill Sans</family>
+           <pointsize>15</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Saturday</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QFrame" name="sunday_f">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>160</y>
+          <width>141</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QFrame {
+                                        background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656,
+                                        stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);
+                                        }
+                                    </string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QCheckBox" name="checkBox_sun">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>10</y>
+           <width>86</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Gill Sans</family>
+           <pointsize>15</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Sunday</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>160</y>
+          <width>141</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Gill Sans</family>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QFrame {
+                                        background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656,
+                                        stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);
+                                        }
+                                    </string>
+        </property>
+        <property name="text">
+         <string>  Day Repeater</string>
+        </property>
+       </widget>
+       <widget class="QFrame" name="wednesday_f">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>90</y>
+          <width>141</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QFrame {
+                                        background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656,
+                                        stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);
+                                        }
+                                    </string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QCheckBox" name="checkBox_weds">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>10</y>
+           <width>101</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Gill Sans</family>
+           <pointsize>15</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Wednesday</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QListView" name="meeting_list">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>30</y>
+         <width>481</width>
+         <height>321</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Gill Sans</family>
+         <pointsize>18</pointsize>
+        </font>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QListView {
+    show-decoration-selected: 1; /* make the selection span the entire width of the view */
+    background-color: rgb(139, 141, 141);
+    border-radius: 3px;
+    border: 3px solid rgb(85, 86, 86);;
+}
+QListView::item {
+           background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656,
+                                        stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);
+    border: 2px solid #303030;
+    border-bottom-color: #303030; /* same as the pane color */
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    min-width: 14.4ex;
+    padding: 15px;
+    border-radius: 6px;
+}</string>
+       </property>
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <property name="showDropIndicator" stdset="0">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="program_runner">
+       <property name="geometry">
+        <rect>
+         <x>540</x>
+         <y>30</y>
+         <width>281</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Gill Sans</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+                                    border: 2px solid #8f8f91;
+                                    border-radius: 6px;
+                                    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                    stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                    min-width: 80px;
+                                    }
+
+
+                                    QPushButton:pressed {
+                                    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                    stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                    }
+
+
+                                    QPushButton:selected, QPushButton:hover {
+                                    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                    stop: 0 #008000, stop: 0.4 #228B22,
+                                    stop: 0.5 #008000, stop: 1.0 #228B22);
+                                    }
+
+
+                                    QPushButton {
+                                    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                    stop: 0 #686868, stop: 0.4 #505050,
+                                    stop: 0.5 #686868, stop: 1.0 #505050);
+                                    border: 2px solid #303030;
+                                    border-bottom-color: #303030; /* same as the pane color */
+                                    border-top-left-radius: 3px;
+                                    border-top-right-radius: 3px;
+                                    min-width: 14.4ex;
+                                    padding: 7px;
+                                    }
+
+
+                                    QPushButton:flat {
+                                    border: none; /* no border for a flat push button */
+                                    }
+
+
+                                    QPushButton:default {
+                                    border-color: navy; /* make the default button prominent */
+                                    }
+
+
+                                    QPushButton:selected {
+                                    border-color: #FF0000;
+                                    border-bottom-color: #FF0000; /* same as pane color */
+                                    }
+                                </string>
+       </property>
+       <property name="text">
+        <string>Launch Program</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="sound_b">
+       <property name="geometry">
+        <rect>
+         <x>850</x>
+         <y>30</y>
+         <width>181</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Gill Sans</family>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="whatsThis">
+        <string/>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+                                    border: 2px solid #8f8f91;
+                                    border-radius: 6px;
+                                    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                    stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                    min-width: 80px;
+                                    }
+
+
+                                    QPushButton:pressed {
+                                    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                    stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                    }
+
+
+                                    QPushButton:selected, QPushButton:hover {
+                                    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                    stop: 0 #008000, stop: 0.4 #228B22,
+                                    stop: 0.5 #008000, stop: 1.0 #228B22);
+                                    }
+
+
+                                    QPushButton {
+                                    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                    stop: 0 #686868, stop: 0.4 #505050,
+                                    stop: 0.5 #686868, stop: 1.0 #505050);
+                                    border: 2px solid #303030;
+                                    border-bottom-color: #303030; /* same as the pane color */
+                                    border-top-left-radius: 3px;
+                                    border-top-right-radius: 3px;
+                                    min-width: 14.4ex;
+                                    padding: 7px;
+                                    }
+
+
+                                    QPushButton:flat {
+                                    border: none; /* no border for a flat push button */
+                                    }
+
+
+                                    QPushButton:default {
+                                    border-color: navy; /* make the default button prominent */
+                                    }
+
+
+                                    QPushButton:selected {
+                                    border-color: #FF0000;
+                                    border-bottom-color: #FF0000; /* same as pane color */
+                                    }
+                                </string>
+       </property>
+       <property name="text">
+        <string>Sound: OFF</string>
+       </property>
+       <property name="checkable">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="list_label">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>40</y>
+         <width>481</width>
+         <height>291</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Gill Sans</family>
+         <pointsize>45</pointsize>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="text">
+        <string>No Meetings Running</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Monday_t">
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
+     <attribute name="title">
+      <string>Monday</string>
+     </attribute>
+     <widget class="QStackedWidget" name="monday_stacked_1">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>741</width>
+        <height>331</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QStackedWidget {
+                                border: 3px solid rgb(25, 26, 26);
+                                background: rgb(139, 141, 141);
+                                }
+
+                                #page1 {
+                                background-color: blue;
+                                }
+                                #page2 {
+                                background-color: red;
+                                }
+                            </string>
+      </property>
+      <property name="currentIndex">
+       <number>-1</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_new_button_1">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>220</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 3px;
+                                }
+
+                                QPushButton:flat {
+                                border: #FF0000; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+
+                            </string>
+      </property>
+      <property name="text">
+       <string>New Meeting</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_next_button_1">
+      <property name="geometry">
+       <rect>
+        <x>930</x>
+        <y>60</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>20</pointsize>
+        <strikeout>false</strikeout>
+       </font>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 7px;
+                                }
+
+                                QPushButton:flat {
+                                border: none; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+                                QPushButton:selected {
+                                border-color: #FF0000;
+                                border-bottom-color: #FF0000; /* same as pane color */
+                                }
+                            </string>
+      </property>
+      <property name="text">
+       <string>Next Meeting</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_prev_button_1">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>60</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #696969;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 7px;
+                                }
+
+                                QPushButton:flat {
+                                border: none; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+                                QPushButton:selected {
+                                border-color: #FF0000;
+                                border-bottom-color: #FF0000; /* same as pane color */
+                                }
+                            </string>
+      </property>
+      <property name="text">
+       <string>Prior Meeting</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_delete_button_1">
+      <property name="geometry">
+       <rect>
+        <x>930</x>
+        <y>220</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>19</pointsize>
+       </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 3px;
+                                }
+
+                                QPushButton:flat {
+                                border: none; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+                                QPushButton:selected {
+                                border-color: #FF0000;
+                                border-bottom-color: #FF0000; /* same as pane color */
+                                }
+                            </string>
+      </property>
+      <property name="text">
+       <string>Delete Meeting</string>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Tuesday_t">
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
+     <attribute name="title">
+      <string>Tuesday</string>
+     </attribute>
+     <widget class="QStackedWidget" name="tuesday_stacked_2">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>741</width>
+        <height>331</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QStackedWidget {
+                                border: 3px solid rgb(25, 26, 26);
+                                background: rgb(139, 141, 141);
+                                }
+
+                                #page1 {
+                                background-color: blue;
+                                }
+                                #page2 {
+                                background-color: red;
+                                }
+                            </string>
+      </property>
+      <property name="currentIndex">
+       <number>-1</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_new_button_2">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>220</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 3px;
+                                }
+
+                                QPushButton:flat {
+                                border: #FF0000; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+
+                            </string>
+      </property>
+      <property name="text">
+       <string>New Meeting</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_next_button_2">
+      <property name="geometry">
+       <rect>
+        <x>930</x>
+        <y>60</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>20</pointsize>
+        <strikeout>false</strikeout>
+       </font>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 7px;
+                                }
+
+                                QPushButton:flat {
+                                border: none; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+                                QPushButton:selected {
+                                border-color: #FF0000;
+                                border-bottom-color: #FF0000; /* same as pane color */
+                                }
+                            </string>
+      </property>
+      <property name="text">
+       <string>Next Meeting</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_prev_button_2">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>60</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 7px;
+                                }
+
+                                QPushButton:flat {
+                                border: none; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+                                QPushButton:selected {
+                                border-color: #FF0000;
+                                border-bottom-color: #FF0000; /* same as pane color */
+                                }
+                            </string>
+      </property>
+      <property name="text">
+       <string>Prior Meeting</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_delete_button_2">
+      <property name="geometry">
+       <rect>
+        <x>930</x>
+        <y>220</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>19</pointsize>
+       </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 3px;
+                                }
+
+                                QPushButton:flat {
+                                border: none; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+                                QPushButton:selected {
+                                border-color: #FF0000;
+                                border-bottom-color: #FF0000; /* same as pane color */
+                                }
+                            </string>
+      </property>
+      <property name="text">
+       <string>Delete Meeting</string>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Wednesday_t">
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
+     <attribute name="title">
+      <string>Wednesday</string>
+     </attribute>
+     <widget class="QPushButton" name="m_prev_button_3">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>60</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 7px;
+                                }
+
+                                QPushButton:flat {
+                                border: none; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+                                QPushButton:selected {
+                                border-color: #FF0000;
+                                border-bottom-color: #FF0000; /* same as pane color */
+                                }
+                            </string>
+      </property>
+      <property name="text">
+       <string>Prior Meeting</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_next_button_3">
+      <property name="geometry">
+       <rect>
+        <x>930</x>
+        <y>60</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>20</pointsize>
+        <strikeout>false</strikeout>
+       </font>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 7px;
+                                }
+
+                                QPushButton:flat {
+                                border: none; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+                                QPushButton:selected {
+                                border-color: #FF0000;
+                                border-bottom-color: #FF0000; /* same as pane color */
+                                }
+                            </string>
+      </property>
+      <property name="text">
+       <string>Next Meeting</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_new_button_3">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>220</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 3px;
+                                }
+
+                                QPushButton:flat {
+                                border: #FF0000; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+
+                            </string>
+      </property>
+      <property name="text">
+       <string>New Meeting</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_delete_button_3">
+      <property name="geometry">
+       <rect>
+        <x>930</x>
+        <y>220</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>19</pointsize>
+       </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 3px;
+                                }
+
+                                QPushButton:flat {
+                                border: none; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+                                QPushButton:selected {
+                                border-color: #FF0000;
+                                border-bottom-color: #FF0000; /* same as pane color */
+                                }
+                            </string>
+      </property>
+      <property name="text">
+       <string>Delete Meeting</string>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QStackedWidget" name="wednesday_stacked_3">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>741</width>
+        <height>331</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QStackedWidget {
+                                border: 3px solid rgb(25, 26, 26);
+                                background: rgb(139, 141, 141);
+                                }
+
+                                #page1 {
+                                background-color: blue;
+                                }
+                                #page2 {
+                                background-color: red;
+                                }
+                            </string>
+      </property>
+      <property name="currentIndex">
+       <number>-1</number>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Thursday_t">
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
+     <attribute name="title">
+      <string>Thursday</string>
+     </attribute>
+     <widget class="QPushButton" name="m_prev_button_4">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>60</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 7px;
+                                }
+
+                                QPushButton:flat {
+                                border: none; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+                                QPushButton:selected {
+                                border-color: #FF0000;
+                                border-bottom-color: #FF0000; /* same as pane color */
+                                }
+                            </string>
+      </property>
+      <property name="text">
+       <string>Prior Meeting</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_next_button_4">
+      <property name="geometry">
+       <rect>
+        <x>930</x>
+        <y>60</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>20</pointsize>
+        <strikeout>false</strikeout>
+       </font>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 7px;
+                                }
+
+                                QPushButton:flat {
+                                border: none; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+                                QPushButton:selected {
+                                border-color: #FF0000;
+                                border-bottom-color: #FF0000; /* same as pane color */
+                                }
+                            </string>
+      </property>
+      <property name="text">
+       <string>Next Meeting</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_new_button_4">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>220</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 3px;
+                                }
+
+                                QPushButton:flat {
+                                border: #FF0000; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+
+                            </string>
+      </property>
+      <property name="text">
+       <string>New Meeting</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_delete_button_4">
+      <property name="geometry">
+       <rect>
+        <x>930</x>
+        <y>220</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>19</pointsize>
+       </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 3px;
+                                }
+
+                                QPushButton:flat {
+                                border: none; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+                                QPushButton:selected {
+                                border-color: #FF0000;
+                                border-bottom-color: #FF0000; /* same as pane color */
+                                }
+                            </string>
+      </property>
+      <property name="text">
+       <string>Delete Meeting</string>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QStackedWidget" name="thursday_stacked_4">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>741</width>
+        <height>331</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QStackedWidget {
+                                border: 3px solid rgb(25, 26, 26);
+                                background: rgb(139, 141, 141);
+                                }
+
+                                #page1 {
+                                background-color: blue;
+                                }
+                                #page2 {
+                                background-color: red;
+                                }
+                            </string>
+      </property>
+      <property name="currentIndex">
+       <number>-1</number>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Friday_t">
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
+     <attribute name="title">
+      <string>Friday</string>
+     </attribute>
+     <widget class="QPushButton" name="m_prev_button_5">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>60</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 7px;
+                                }
+
+                                QPushButton:flat {
+                                border: none; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+                                QPushButton:selected {
+                                border-color: #FF0000;
+                                border-bottom-color: #FF0000; /* same as pane color */
+                                }
+                            </string>
+      </property>
+      <property name="text">
+       <string>Prior Meeting</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_next_button_5">
+      <property name="geometry">
+       <rect>
+        <x>930</x>
+        <y>60</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>20</pointsize>
+        <strikeout>false</strikeout>
+       </font>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 7px;
+                                }
+
+                                QPushButton:flat {
+                                border: none; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+                                QPushButton:selected {
+                                border-color: #FF0000;
+                                border-bottom-color: #FF0000; /* same as pane color */
+                                }
+                            </string>
+      </property>
+      <property name="text">
+       <string>Next Meeting</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_new_button_5">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>220</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 3px;
+                                }
+
+                                QPushButton:flat {
+                                border: #FF0000; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+
+                            </string>
+      </property>
+      <property name="text">
+       <string>New Meeting</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_delete_button_5">
+      <property name="geometry">
+       <rect>
+        <x>930</x>
+        <y>220</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>19</pointsize>
+       </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 3px;
+                                }
+
+                                QPushButton:flat {
+                                border: none; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+                                QPushButton:selected {
+                                border-color: #FF0000;
+                                border-bottom-color: #FF0000; /* same as pane color */
+                                }
+                            </string>
+      </property>
+      <property name="text">
+       <string>Delete Meeting</string>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QStackedWidget" name="friday_stacked_5">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>741</width>
+        <height>331</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QStackedWidget {
+                                border: 3px solid rgb(25, 26, 26);
+                                background: rgb(139, 141, 141);
+                                }
+
+                                #page1 {
+                                background-color: blue;
+                                }
+                                #page2 {
+                                background-color: red;
+                                }
+                            </string>
+      </property>
+      <property name="currentIndex">
+       <number>-1</number>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Saturday_t">
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
+     <attribute name="title">
+      <string>Saturday</string>
+     </attribute>
+     <widget class="QPushButton" name="m_prev_button_6">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>60</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 7px;
+                                }
+
+                                QPushButton:flat {
+                                border: none; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+                                QPushButton:selected {
+                                border-color: #FF0000;
+                                border-bottom-color: #FF0000; /* same as pane color */
+                                }
+                            </string>
+      </property>
+      <property name="text">
+       <string>Prior Meeting</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_next_button_6">
+      <property name="geometry">
+       <rect>
+        <x>930</x>
+        <y>60</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>20</pointsize>
+        <strikeout>false</strikeout>
+       </font>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 7px;
+                                }
+
+                                QPushButton:flat {
+                                border: none; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+                                QPushButton:selected {
+                                border-color: #FF0000;
+                                border-bottom-color: #FF0000; /* same as pane color */
+                                }
+                            </string>
+      </property>
+      <property name="text">
+       <string>Next Meeting</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_new_button_6">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>220</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 3px;
+                                }
+
+                                QPushButton:flat {
+                                border: #FF0000; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+
+                            </string>
+      </property>
+      <property name="text">
+       <string>New Meeting</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_delete_button_6">
+      <property name="geometry">
+       <rect>
+        <x>930</x>
+        <y>220</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>19</pointsize>
+       </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 3px;
+                                }
+
+                                QPushButton:flat {
+                                border: none; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+                                QPushButton:selected {
+                                border-color: #FF0000;
+                                border-bottom-color: #FF0000; /* same as pane color */
+                                }
+                            </string>
+      </property>
+      <property name="text">
+       <string>Delete Meeting</string>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QStackedWidget" name="saturday_stacked_6">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>741</width>
+        <height>331</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QStackedWidget {
+                                border: 3px solid rgb(25, 26, 26);
+                                background: rgb(139, 141, 141);
+                                }
+
+                                #page1 {
+                                background-color: blue;
+                                }
+                                #page2 {
+                                background-color: red;
+                                }
+                            </string>
+      </property>
+      <property name="currentIndex">
+       <number>-1</number>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Sunday_t">
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
+     <attribute name="title">
+      <string>Sunday</string>
+     </attribute>
+     <widget class="QPushButton" name="m_prev_button_0">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>60</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 7px;
+                                }
+
+                                QPushButton:flat {
+                                border: none; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+                                QPushButton:selected {
+                                border-color: #FF0000;
+                                border-bottom-color: #FF0000; /* same as pane color */
+                                }
+                            </string>
+      </property>
+      <property name="text">
+       <string>Prior Meeting</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_next_button_0">
+      <property name="geometry">
+       <rect>
+        <x>930</x>
+        <y>60</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>20</pointsize>
+        <strikeout>false</strikeout>
+       </font>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 7px;
+                                }
+
+                                QPushButton:flat {
+                                border: none; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+                                QPushButton:selected {
+                                border-color: #FF0000;
+                                border-bottom-color: #FF0000; /* same as pane color */
+                                }
+                            </string>
+      </property>
+      <property name="text">
+       <string>Next Meeting</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_new_button_0">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>220</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 3px;
+                                }
+
+                                QPushButton:flat {
+                                border: #FF0000; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+
+                            </string>
+      </property>
+      <property name="text">
+       <string>New Meeting</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="m_delete_button_0">
+      <property name="geometry">
+       <rect>
+        <x>930</x>
+        <y>220</y>
+        <width>131</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gill Sans</family>
+        <pointsize>19</pointsize>
+       </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+                                border: 2px solid #8f8f91;
+                                border-radius: 6px;
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #f6f7fa, stop: 1 #dadbde);
+                                min-width: 80px;
+                                }
+
+                                QPushButton:pressed {
+                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #dadbde, stop: 1 #f6f7fa);
+                                }
+
+                                QPushButton:selected, QPushButton:hover {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #484848, stop: 0.4 #585858,
+                                stop: 0.5 #585858, stop: 1.0 #484848);
+                                }
+
+                                QPushButton {
+                                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #686868, stop: 0.4 #505050,
+                                stop: 0.5 #686868, stop: 1.0 #505050);
+                                border: 2px solid #303030;
+                                border-bottom-color: #303030; /* same as the pane color */
+                                border-top-left-radius: 3px;
+                                border-top-right-radius: 3px;
+                                min-width: 14.4ex;
+                                padding: 3px;
+                                }
+
+                                QPushButton:flat {
+                                border: none; /* no border for a flat push button */
+                                }
+
+                                QPushButton:default {
+                                border-color: navy; /* make the default button prominent */
+                                }
+
+                                QPushButton:selected {
+                                border-color: #FF0000;
+                                border-bottom-color: #FF0000; /* same as pane color */
+                                }
+                            </string>
+      </property>
+      <property name="text">
+       <string>Delete Meeting</string>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QStackedWidget" name="sunday_stacked_0">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>741</width>
+        <height>331</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QStackedWidget {
+                                border: 3px solid rgb(25, 26, 26);
+                                background: rgb(139, 141, 141);
+                                }
+
+                                #page1 {
+                                background-color: blue;
+                                }
+                                #page2 {
+                                background-color: red;
+                                }
+                            </string>
+      </property>
+      <property name="currentIndex">
+       <number>-1</number>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="App_Title">
+    <property name="geometry">
+     <rect>
+      <x>59</x>
+      <y>35</y>
+      <width>581</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Gill Sans</family>
+      <pointsize>96</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>ZOOMer</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,8 @@
+**EXIT CODES**
+Code 77 - SummeryAction() stdin choice error
+Code 88 - ErrorHandler() quit stdin error
+Code 44 - Print prompt error
+Code 33 - Int to weekday str error
+Code 55 - Invalid error type
+Code 22 - Invalid CRUD type
+Code 11 - Invalid schedule acton choice
