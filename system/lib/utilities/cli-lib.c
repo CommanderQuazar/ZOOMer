@@ -124,7 +124,6 @@ void graphicsLoader(char filename[100])
  */
 void printPrompt(int weekDay, int cur_meeting_num)
 {
-
     char * str_week_day = NULL;
 
     switch(weekDay)
@@ -389,9 +388,10 @@ void clearScreen(void)
         system("clear");
     #endif
 
-    #if defined(_WIN32) || defined(_WIN64)
-        system("cls");
-    #endif
+    // Windows in the future?
+    // #if defined(_WIN32) || defined(_WIN64)
+    //     system("cls");
+    // #endif
 }
 
 /*

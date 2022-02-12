@@ -71,10 +71,13 @@ int getPidByName(char *task_name)
         DIR * dir;
         struct dirent * ptr;
         FILE * fp;
-        char filepath[50];//The size is arbitrary, can hold the path of cmdline file
-        char cur_task_name[50];//The size is arbitrary, can hold to recognize the command line text
+        //The size is arbitrary, can hold the path of cmdline file
+        char filepath[50];
+        //The size is arbitrary, can hold to recognize the command line text
+        char cur_task_name[50];
         char buf[BUF_SIZE];
-        dir = opendir("/proc"); //Open the path to the
+        //Open the path to the
+        dir = opendir("/proc");
         if (NULL != dir) {
             while ((ptr = readdir(dir)) != NULL) //Loop reads each file/folder in the path
             {
@@ -85,8 +88,10 @@ int getPidByName(char *task_name)
                 if (DT_DIR != ptr->d_type)
                     continue;
 
-                sprintf(filepath, "/proc/%s/status", ptr->d_name);//Generates the path to the file to be read
-                fp = fopen(filepath, "r");//Open the file
+                //Generates the path to the file to be read
+                sprintf(filepath, "/proc/%s/status", ptr->d_name);
+                //Open the file
+                fp = fopen(filepath, "r");
 
                 if (NULL != fp) {
                     if (fgets(buf, BUF_SIZE - 1, fp) == NULL)
