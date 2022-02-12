@@ -870,7 +870,7 @@ void viewSchedule(void)
 void displayHelpPrompt(void)
 {
     FILE * help_file;
-    char filePath[NAME_MAXLEN] = "/Users/tobeyragain/Argon Galactic/Projects/ZOOMer/help_dialog.txt";
+    char filePath[NAME_MAXLEN] = "../system/help_dialog.txt";
     char s, in;
 
     if(!(help_file = fopen(filePath, "r")))
