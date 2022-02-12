@@ -21,7 +21,7 @@
 // SOFTWARE.
 
 
-#include "../../../../Argon Galactic/Projects/ZOOMer/system/includes/cli.h"
+#include "../includes/cli.h"
 
 /*
  * Initialized the ZOOMer program
